@@ -1,5 +1,10 @@
 const githubReducer = (state, action) => {
     switch(action.type) {
+        case 'CLEAR_RESULTS':
+            return {
+                ...state,
+                users: []
+            }
         case 'GET_USERS':
             return {
                 ...state,
