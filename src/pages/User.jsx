@@ -3,13 +3,16 @@ import {useContext, useEffect} from 'react'
 import GithubContext from '../context/github/GithubContext'
 import { Link, useParams } from 'react-router-dom';
 import Spinner from '../components/layout/Spinner';
+import RepoList from '../components/repos/RepoList';
 
 function User() {
-    const {getUser, loading, user} = useContext(GithubContext);
+    const {getUser, getUserRepos, loading, repos, user} = useContext(GithubContext);
     const params = useParams();
 
     useEffect(()=> {
         getUser(params.login);
+        getUserRepos(params.login);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const {
@@ -165,6 +168,8 @@ function User() {
                     </div>
                 </div>
             </div>
+
+            <RepoList repos={repos} />
         </div>
     </>
   )
