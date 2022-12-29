@@ -17,7 +17,7 @@ function RepoItem({repo}) {
         <div className="card-body">
             <h3 className="mb-2 text-xl font-semibold">
                 <a href={html_url}>
-                    <FaLink className='inline mr-1' />
+                    <FaLink className='inline mr-1' /> {name}
                 </a>
             </h3>
             <p className="mb-3">{description}</p>
